@@ -81,5 +81,13 @@ pip install Turtle
 Sea_Fight/
 |--- docs/
 |--- modules/
+    |--- __init__.py
+    |--- click.py
+    |--- draw.py
+    |--- field.py
+    |--- fight.py
+    |--- find_index.py
+    |--- settings.py
+    |--- ships.py
 |--- main.py
 |--- README.md
