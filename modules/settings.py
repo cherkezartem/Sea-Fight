@@ -53,4 +53,5 @@ list_plus = []
 SIZE_BUTTON = 100
 SIZE = 50
 N = 10
-game_phase = ["arrangement"]
+game_phase = ["menu"]
+mode_play = [None]

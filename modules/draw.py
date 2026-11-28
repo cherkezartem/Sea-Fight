@@ -101,3 +101,21 @@ def draw_text_win(player: int):
         p_text.color("#007BFF")
         text = "Переміг синій гравець"
     p_text.write(text, align="center", font=(None, 65))
+
+def draw_menu():
+    paint_button.clear()
+    text_list = ["Грати проти друга","Грати проти ПК","Грати проти складного ПК"]
+    for x_chenger in range(3):
+        paint_button.penup()
+        paint_button.goto(-725 + x_chenger*500, 40)
+        paint_button.pendown()
+        for i in range(4):
+            if i %2 == 0:
+                paint_button.forward(450)
+            else:
+                paint_button.forward(80)
+            paint_button.right(90)
+        paint_button.penup()
+        paint_button.goto(-725 + x_chenger*500 + 225, -15)
+        paint_button.pendown()
+        paint_button.write(text_list[x_chenger], align="center", font=(None, 22))

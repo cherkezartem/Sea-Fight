@@ -22,7 +22,27 @@ def cell_click(index_x, index_y, cur_cells, cur_ships):
             if can_paste:
                 selected_ship[0].x = cor_x
                 selected_ship[0].y = cor_y
-            
+
+def start_arrangement():
+    paint_button.clear()
+    draw_field(int(-N/2 * SIZE), int(-N/2 * SIZE), 10)
+    text("red", "червоного")
+    for ship in ships:
+        ship.draw()
+
+
+def menu_click(x, y):
+    if y <= 40 and y >= -40:
+        if x >= -725 and x <= -275:
+            mode_play[0] = "friend"
+        elif x >= -225 and x <= 225:
+            mode_play[0] = "pc"
+        elif x >= 275 and x <= 725:
+            mode_play[0] = "hard_pc"
+    if mode_play[0] != None:
+        game_phase[0] = "arrangement"
+        start_arrangement()
+
 # Клик по корабликам.
 def ship_click(x, y, cur_ships: list[Ship]):
     for ship in cur_ships:
@@ -92,7 +112,9 @@ def button_click(x, y, cur_ships, cur_cells):
     
 # Функция для клика.
 def click(x: float, y: float):
-    if game_phase[0] == "arrangement":
+    if game_phase[0] == "menu":
+        menu_click(x, y)
+    elif game_phase[0] == "arrangement":
         cur_cells = cells_p1
         cur_ships = ships
         if player_turn[0] == 1:
